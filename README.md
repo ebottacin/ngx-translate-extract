@@ -11,7 +11,7 @@ Merges with existing strings if the output file already exists.
 ### Usage
 Install the package in your project:
 
-`npm install @biesbjerg/ngx-translate-extract --save-dev`
+`npm install @ebottacin/ngx-translate-extract --save-dev`
 
 Add a script to your project's `package.json`:
 ```json
@@ -55,10 +55,10 @@ If you want to use spaces instead, you can do the following:
 If, for some reason, you want to extract strings not passed directly to `TranslateService`'s `get()` or `instant()` methods, you can wrap them in a custom marker function to let `ngx-translate-extract` know you want to extract them.
 
 Install marker function:
-`npm install @biesbjerg/ngx-translate-extract-marker`
+`npm install @ebottacin/ngx-translate-extract-marker`
 
 ```ts
-import { marker } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker } from '@ebottacin/ngx-translate-extract-marker';
 
 marker('Extract me');
 ```
@@ -70,7 +70,7 @@ Add the `marker` argument when running the extract script:
 You can alias the marker function if needed:
 
 ```ts
-import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
+import { marker as _ } from '@ebottacin/ngx-translate-extract-marker';
 
 _('Extract me');
 ```

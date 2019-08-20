@@ -18,7 +18,7 @@ describe('FunctionParser', () => {
 
 	it('should extract strings using marker function', () => {
 		const contents = `
-			import { marker } from '@biesbjerg/ngx-translate-extract-marker';
+			import { marker } from '@ebottacin/ngx-translate-extract-marker';
 			marker('Hello world');
 			marker(['I', 'am', 'extracted']);
 			otherFunction('But I am not');

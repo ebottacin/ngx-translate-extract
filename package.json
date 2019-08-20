@@ -1,6 +1,6 @@
 {
-  "name": "@biesbjerg/ngx-translate-extract",
-  "version": "3.0.2",
+  "name": "@ebottacin/ngx-translate-extract",
+  "version": "1.0.0",
   "description": "Extract strings from projects using ngx-translate",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,11 +12,12 @@
     "ngx-translate-extract": "bin/cli.js"
   },
   "scripts": {
-    "build": "npm run clean && tsc",
-    "watch": "npm run clean && tsc --watch",
+    "build": "npm run clean && ./node_modules/typescript/bin/tsc",
+    "watch": "npm run clean && ./node_modules/typescript/bin/tsc --watch",
     "clean": "rm -rf ./dist",
-    "lint": "tslint --force './src/**/*.ts'",
-    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
+    "lint": "./node_modules/tslint/bin/tslint --force './src/**/*.ts'",
+    "test": "./node_modules/mocha/bin/mocha -r ts-node/register tests/**/*.spec.ts",
+    "sample": "./bin/cli.js -i ../ngx-translate-test/src -o ../data -k -f namespaced-json"
   },
   "repository": {
     "type": "git",
@@ -33,12 +34,12 @@
     "i18n",
     "gettext"
   ],
-  "author": "Kim Biesbjerg <kim@biesbjerg.com>",
+  "author": "Enrico Bottacin <enrico.bottacin01@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/biesbjerg/ngx-translate-extract/issues"
+    "url": "https://github.com/ebottacin/ngx-translate-extract/issues"
   },
-  "homepage": "https://github.com/biesbjerg/ngx-translate-extract",
+  "homepage": "https://github.com/ebottacin/ngx-translate-extract",
   "engines": {
     "node": ">=4.3.2"
   },
@@ -49,7 +50,6 @@
     "@types/glob": "^7.1.1",
     "@types/mkdirp": "^0.5.2",
     "@types/mocha": "^5.2.7",
-    "@types/yargs": "^13.0.1",
     "chai": "^4.2.0",
     "mocha": "^6.2.0",
     "ts-node": "^8.3.0",
@@ -69,6 +69,7 @@
     "reflect-metadata": "^0.1.13",
     "terminal-link": "^1.3.0",
     "typescript": "^3.5.3",
-    "yargs": "^13.3.0"
+    "yargs": "^13.3.0",
+    "@types/yargs": "^13.0.1"
   }
 }
