@@ -8,18 +8,18 @@ import { ParserInterface, ParserInterfaceWithConfig } from '../../parsers/parser
 import { CompilerInterface } from '../../compilers/compiler.interface';
 import { CompilerFactory } from '../../compilers/compiler.factory';
 
-export abstract class TaskFactoryOptions {
+export class TaskFactoryOptions {
 	public replace: boolean = false;
 	public patterns: string[] = ['/**/*.html', '/**/*.ts'];
+	public postProcessors: PostProcessorInterface[] = [];
 	public format: string;
-	public marker?: boolean;
-	public postProcessors?: PostProcessorInterface[];
-	public formatIndentation?: string = '\t';
+	public marker: boolean = false;
+	public formatIndentation: string = '\t';
 }
 
-export function createTask (input: string, output: string[], options: TaskFactoryOptions): TaskInterface  {
+export function createTask (input: string[], output: string[], options: TaskFactoryOptions): TaskInterface  {
 	const extractTaskFactory = container.get<interfaces.Factory<TaskInterface>>(TYPES.TASK_FACTORY);
-	const opts: ExtractTaskOptionsInterface = (({ replace, patterns }) => ({ replace, patterns }))(options); 
+	const opts: ExtractTaskOptionsInterface = (({ replace, patterns }) => ({ replace, patterns }))(options);
 	const extractTask = <TaskInterface> extractTaskFactory(input, output, opts);
 
 	const parsers: ParserInterface[] = [container.get<ParserInterface>(TYPES.SERVICE_PARSER),
